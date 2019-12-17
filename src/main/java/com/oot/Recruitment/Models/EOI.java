@@ -14,12 +14,12 @@ import javax.persistence.OneToOne;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
+@Data
 @Entity
-@Getter @Setter @NoArgsConstructor
+@NoArgsConstructor
 public class EOI {
 	
     @Id

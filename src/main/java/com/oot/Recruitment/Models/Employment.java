@@ -8,12 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
+@Data
 @Entity
-@Getter @Setter @NoArgsConstructor
+@NoArgsConstructor
 public class Employment {
 	@Id
 	private Long id;

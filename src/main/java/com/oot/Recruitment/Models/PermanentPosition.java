@@ -4,12 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
+@Data
 @Entity
-@Getter @Setter @NoArgsConstructor
+@NoArgsConstructor
 public class PermanentPosition {
     @Id
     private Long id;
