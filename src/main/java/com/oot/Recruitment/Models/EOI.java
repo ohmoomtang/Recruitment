@@ -6,13 +6,15 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,10 +23,10 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 public class EOI {
-	
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "applicant_id")
     private Applicant applicant;
     
@@ -36,24 +38,24 @@ public class EOI {
     private int english_proficiency_level;
     
     private boolean permanent_pos_toggle;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "permanent_pos_id")
     private PermanentPosition permanent_pos;
     
     private boolean permanent_return_pos_toggle;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "permanent_return_pos_id")
     private PermanentReturnPosition permanent_return_pos;
     
     private boolean apprenticeship_toggle;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "apprenticeship_id")
     private Apprenticeship apprenticeship;
     
     private int status;
     
-    @CreatedDate
+    @CreationTimestamp
     private Date create_date;
-    @LastModifiedDate
+    @UpdateTimestamp
     private Date last_update_date;
 }
