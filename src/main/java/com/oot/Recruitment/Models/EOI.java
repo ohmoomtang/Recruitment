@@ -30,9 +30,9 @@ public class EOI {
     @JoinColumn(name = "applicant_id")
     private Applicant applicant;
     
-    @OneToMany(mappedBy = "eoi",cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Education> education = new ArrayList<Education>();
-    @OneToMany(mappedBy = "eoi",cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Employment> employment = new ArrayList<Employment>();
     
     private int english_proficiency_level;
