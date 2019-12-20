@@ -3,9 +3,13 @@ package com.oot.Recruitment.Models;
 import java.sql.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import com.oot.Recruitment.Enumerated.AgeRange;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,5 +25,6 @@ public class Applicant {
     private String lastName;
     private String emailAddress;
     private Date birthdate;
-    private int ageRange;
+    @Enumerated(EnumType.STRING)
+    private AgeRange ageRange;
 }

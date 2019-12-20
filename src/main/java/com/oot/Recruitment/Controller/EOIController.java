@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.oot.Recruitment.Enumerated.EOIStatus;
 import com.oot.Recruitment.Models.Applicant;
 import com.oot.Recruitment.Models.Apprenticeship;
 import com.oot.Recruitment.Models.EOI;
@@ -20,6 +21,8 @@ import com.oot.Recruitment.Models.Employment;
 import com.oot.Recruitment.Models.PermanentPosition;
 import com.oot.Recruitment.Models.PermanentReturnPosition;
 import com.oot.Recruitment.Repository.EOIRepository;
+
+import com.oot.Recruitment.Utils.*;
 
 @RestController
 @RequestMapping(value = "/EOI")
@@ -123,36 +126,47 @@ public class EOIController {
 	public ResponseEntity<?> addEOI(@RequestBody EOI submitted_eoi) {
 		EOI eoi = new EOI();
 		
+		submitted_eoi.getApplicant().setAgeRange(Utils.calculateAgeRange(submitted_eoi.getApplicant()));
+		
 		eoi.setApplicant(submitted_eoi.getApplicant());
 		eoi.setEducation(submitted_eoi.getEducation());
 		eoi.setEmployment(submitted_eoi.getEmployment());
 		eoi.setEnglish_proficiency_level(submitted_eoi.getEnglish_proficiency_level());
 		
 		if(submitted_eoi.isApprenticeship_toggle()) {
-			eoi.setApprenticeship_toggle(submitted_eoi.isApprenticeship_toggle());
-			eoi.setApprenticeship(submitted_eoi.getApprenticeship());
+			Apprenticeship apprenticeship = new Apprenticeship();
+			apprenticeship.setTotal_points(Utils.calculateTotalPointsApprenticeship(submitted_eoi));
+
+			eoi.setApprenticeship_toggle(submitted_eoi.isApprenticeship_toggle());			
+			eoi.setApprenticeship(apprenticeship);
 		}
 		else {
 			eoi.setApprenticeship_toggle(submitted_eoi.isApprenticeship_toggle());
 		}
 		
 		if(submitted_eoi.isPermanent_pos_toggle()) {
+			PermanentPosition permanent_pos = new PermanentPosition();
+			permanent_pos.setTotal_points(Utils.calculateTotalPointsPermanentPosition(submitted_eoi));	
+			
 			eoi.setPermanent_pos_toggle(submitted_eoi.isPermanent_pos_toggle());
-			eoi.setPermanent_pos(submitted_eoi.getPermanent_pos());
+			eoi.setPermanent_pos(permanent_pos);
 		}
 		else {
 			eoi.setPermanent_pos_toggle(submitted_eoi.isPermanent_pos_toggle());
 		}
 		
 		if(submitted_eoi.isPermanent_return_pos_toggle()) {
+			PermanentReturnPosition permanent_return_pos = new PermanentReturnPosition();
+			permanent_return_pos.setTotal_points(Utils.calculateTotalPointsPermanentReturnPosition(submitted_eoi));	
+			
 			eoi.setPermanent_return_pos_toggle(submitted_eoi.isPermanent_return_pos_toggle());
-			eoi.setPermanent_return_pos(submitted_eoi.getPermanent_return_pos());
+			eoi.setPermanent_return_pos(permanent_return_pos);
 		}
 		else {
 			eoi.setPermanent_return_pos_toggle(submitted_eoi.isPermanent_return_pos_toggle());
 		}
 		
-		eoi.setStatus(submitted_eoi.getStatus());
+		eoi.setStatus(EOIStatus.SUBMMITED);
 		
 		return new ResponseEntity<>(repository.save(eoi), HttpStatus.CREATED);
 	}

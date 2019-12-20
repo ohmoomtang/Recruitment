@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,6 +17,9 @@ import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+
+import com.oot.Recruitment.Enumerated.EOIStatus;
+import com.oot.Recruitment.Enumerated.EnglishProficiencyLevel;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,7 +40,8 @@ public class EOI {
     @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Employment> employment = new ArrayList<Employment>();
     
-    private int english_proficiency_level;
+    @Enumerated(EnumType.STRING)
+    private EnglishProficiencyLevel english_proficiency_level;
     
     private boolean permanent_pos_toggle;
     @OneToOne(cascade = CascadeType.ALL)
@@ -52,7 +58,8 @@ public class EOI {
     @JoinColumn(name = "apprenticeship_id")
     private Apprenticeship apprenticeship;
     
-    private int status;
+    @Enumerated(EnumType.STRING)
+    private EOIStatus status;
     
     @CreationTimestamp
     private Date create_date;
