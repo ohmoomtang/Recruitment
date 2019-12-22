@@ -32,7 +32,7 @@ There are 3 available streams for NASA
 - Bachelor and above - 15 points
 - Diploma - 10 points
 
-**3.Relevant Work Experience - Maximum is 20**
+**3.Relevant Work Experience**
 
 - 3 to 5 years - 5 points
 - 6 to 8 years - 10 points
@@ -44,6 +44,8 @@ There are 3 available streams for NASA
 - Competent Level - 0 points
 - Proficient Level - 10 points
 - Superior Level - 20 points
+
+**Plus above incentive of each stream**
 
 # Technology stack and details
 Full-Stack enterprise application on Model-View-Controller based with capability to integrate with multiple client type (Web, Mobile, etc.)
