@@ -16,6 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import com.oot.Recruitment.Enumerated.EOIStatus;
@@ -26,6 +27,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@DynamicUpdate
 @NoArgsConstructor
 public class EOI {
     @Id
