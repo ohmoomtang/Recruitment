@@ -18,6 +18,33 @@ There are 3 available streams for NASA
 2.NASA issues invitation for all available EOIs in the pool of each period ranking by total points
 
 3.Applicant who received invitation communicate with NASA for further process.
+# Point awarded break-down
+**1.Age**
+
+- 18 to 24 - 25 points
+- 25 to 32 - 30 points
+- 33 to 39 - 25 points
+- 40 to 45 - 15 points
+
+**2.Education - only highest one is awarded**
+
+- PhD - 20 points
+- Bachelor and above - 15 points
+- Diploma - 10 points
+
+**3.Relevant Work Experience - Maximum is 20**
+
+- 3 to 5 years - 5 points
+- 6 to 8 years - 10 points
+- 8 to 10 years - 15 points
+- 10 years and above - 20 points
+
+**4.English Proficiency Level**
+
+- Competent Level - 0 points
+- Proficient Level - 10 points
+- Superior Level - 20 points
+
 # Technology stack and details
 Full-Stack enterprise application on Model-View-Controller based with capability to integrate with multiple client type (Web, Mobile, etc.)
 
