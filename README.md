@@ -7,7 +7,7 @@ There are 3 available streams for NASA
 
   **1.Apprenticeship** - This stream opens for the one who interested to do apprenticeship or internship with NASA with a possibility to convert into permanent role in the future. This stream is suitable for fresh graduates or individual who already worked in industry but want to obtain experience with NASA. 
   
-  This stream gives applicant **an incentive of 15 bonus points**. However, this stream do not pay salary for a certain period of apprenticeship. After candidate pass probation period, a candidate will get salary for internship and working with NASA. 
+  This stream gives applicant **an incentive of 15 bonus points**. However, this stream does not pay salary for a certain period of apprenticeship. After candidate pass probation period, a candidate will get salary for internship and working with NASA. 
   
   **2.Permanent Position - Return to NASA** - This stream opens for the one who left NASA and would like to rejoin NASA again. This stream gives applicant **an incentive of 5 bonus points**
   
